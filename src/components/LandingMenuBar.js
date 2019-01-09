@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Segment } from 'semantic-ui-react'
 
-class MenuBar extends Component {
+class LandingMenuBar extends Component {
   state = {
     activeItem: 'home'
   }
@@ -18,20 +18,11 @@ class MenuBar extends Component {
         <Menu inverted secondary>
           <Menu.Item content='Carry It'
           />
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}
-          position="right"/>
           <Menu.Item
-            name='Messages'
-            active={activeItem === 'Messages'}              onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='Activity'
-            active={activeItem === 'Activity'}              onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='Settings'
-            active={activeItem === 'Settings'}
+            content='Login / SignUp'
+            active={activeItem === 'Login / SignUp'}
             onClick={this.handleItemClick}
+            position="right"
           />
         </Menu>
       </Segment>
@@ -40,4 +31,4 @@ class MenuBar extends Component {
   }
 }
 
-export default MenuBar;
+export default LandingMenuBar;
