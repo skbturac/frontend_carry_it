@@ -30,17 +30,24 @@
 }
 .header-container {
   /* background-color: #61dafb; */
-  /* background-image: url('https://needitnowcourier.com/wp-content/uploads/2017/11/shipping-restrictions-1014x487.jpeg'); */
+
 }
 .landing-page-container {
-  background-color: #61dafb;
+  background-color: #FBFCFC;
   margin: auto;
+    /* background-image: url('https://needitnowcourier.com/wp-content/uploads/2017/11/shipping-restrictions-1014x487.jpeg'); */
 }
+.user-login-signup-container {
+  background-color: #FBFCFC;
+  margin: 4em;
+  padding: 4em;
+}
+
 .user-login-container {
-  margin: auto;
-  float: left;
+  margin: 2em;
+  padding: 2em;
 }
 .user-signup-container {
-  margin: auto;
-  float: right;
+  padding: 2em;
+  margin: 2em;
 }

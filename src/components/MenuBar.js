@@ -14,23 +14,23 @@ class MenuBar extends Component {
 
     return (
      <div className="menu-container">
-      <Segment inverted>
+      <Segment inverted >
         <Menu inverted secondary>
-          <Menu.Item content='Carry It'
+          <Menu.Item as='h1' content='Carry It'
           />
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}
           position="right"/>
           <Menu.Item
-            name='Messages'
-            active={activeItem === 'Messages'}              onClick={this.handleItemClick}
+            name='Message'
+            active={activeItem === 'Message'}              onClick={this.handleItemClick}
           />
           <Menu.Item
             name='Activity'
             active={activeItem === 'Activity'}              onClick={this.handleItemClick}
           />
           <Menu.Item
-            name='Settings'
-            active={activeItem === 'Settings'}
+            name='Log Out'
+            active={activeItem === 'Log Out'}
             onClick={this.handleItemClick}
           />
         </Menu>

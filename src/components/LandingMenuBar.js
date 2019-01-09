@@ -16,8 +16,7 @@ class LandingMenuBar extends Component {
      <div className="menu-container">
       <Segment inverted>
         <Menu inverted secondary>
-          <Menu.Item content='Carry It'
-          />
+          <Menu.Item as='h1' content='Carry It'/>
           <Menu.Item
             content='Login / SignUp'
             active={activeItem === 'Login / SignUp'}
