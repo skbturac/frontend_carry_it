@@ -17,12 +17,6 @@ class LandingMenuBar extends Component {
         <Segment inverted>
           <Menu inverted secondary>
             <Menu.Item as="h1" content="Carry It" />
-            <Menu.Item
-              content="Login / SignUp"
-              active={activeItem === "Login / SignUp"}
-              onClick={this.handleItemClick}
-              position="right"
-            />
           </Menu>
         </Segment>
       </div>
@@ -31,3 +25,9 @@ class LandingMenuBar extends Component {
 }
 
 export default LandingMenuBar;
+// <Menu.Item
+//   content="Login / SignUp"
+//   active={activeItem === "Login / SignUp"}
+//   onClick={this.handleItemClick}
+//   position="right"
+// />

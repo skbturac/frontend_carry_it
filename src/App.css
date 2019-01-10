@@ -4,12 +4,10 @@
   text-align: center;
   background-color: #ffffff;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,10 +24,8 @@
 }
 
 .homepage-container {
-  /* background-color: red */
 }
 .header-container {
-  /* background-color: #61dafb; */
 }
 .landing-page {
 }
@@ -37,20 +33,35 @@
   background-color: #f9fbf8;
 }
 .user-login-signup-container {
+  margin: 2em;
+  padding: 2em;
 }
 .ui.placeholder.segment {
-  /* margin: 10em;
-  padding: 10em; */
+  margin: 20em;
+  padding: 20em;
 }
-
 .user-login-signup-container-background-image {
-  padding: 10em;
 }
 .user-login-container {
   margin: 2em;
   padding: 1em;
 }
+.ui.stackable.very.relaxed.two.column.grid {
+}
 .user-signup-container {
   margin: 2em;
-  /* padding: 2em; */
+}
+.middl.ligned.column {
+  margin: 2em;
+}
+.profile-container {
+  margin: 2em;
+  padding: 2em;
+  float: left;
+}
+.profile-description {
+  margin: 2em;
+  padding: 2em;
+  height: 400px;
+  width: 400px;
 }

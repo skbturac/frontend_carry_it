@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import ProfileImage from "../components/ProfileImage";
+import ProfileDescription from "../components/ProfileDescription";
 
 class Profile extends Component {
   render() {
     return (
       <div className="profile-container">
-        "Profile"
+        <ProfileImage />
+        <ProfileDescription/>
       </div>
     );
   }
