@@ -1,8 +1,8 @@
 .App {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  background-color: #ffffff
+  background-color: #ffffff;
 }
 
 .App-logo {
@@ -22,32 +22,35 @@
 }
 
 .App-link {
-  color: #61dafb;
+  /* color: #61dafb; */
 }
 
 .homepage-container {
-  background-color: red
+  /* background-color: red */
 }
 .header-container {
   /* background-color: #61dafb; */
-
+}
+.landing-page {
 }
 .landing-page-container {
-  background-color: #FBFCFC;
-  margin: auto;
-    /* background-image: url('https://needitnowcourier.com/wp-content/uploads/2017/11/shipping-restrictions-1014x487.jpeg'); */
+  background-color: #f9fbf8;
 }
 .user-login-signup-container {
-  background-color: #FBFCFC;
-  margin: 4em;
-  padding: 4em;
+}
+.ui.placeholder.segment {
+  /* margin: 10em;
+  padding: 10em; */
 }
 
+.user-login-signup-container-background-image {
+  padding: 10em;
+}
 .user-login-container {
   margin: 2em;
-  padding: 2em;
+  padding: 1em;
 }
 .user-signup-container {
-  padding: 2em;
   margin: 2em;
+  /* padding: 2em; */
 }

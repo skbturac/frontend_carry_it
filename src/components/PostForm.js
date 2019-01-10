@@ -4,7 +4,7 @@ class PostForm extends Component {
   render() {
     return (
       <div className="post-form">
-        "Basla"
+        "Form to post new packages to be sent"
       </div>
     );
   }
