@@ -10,7 +10,7 @@ class LandingMenuBar extends Component {
     this.setState({ activeItem: name });
   };
   render() {
-    const { activeItem } = this.state;
+    // const { activeItem } = this.state;
 
     return (
       <div className="menu-container">

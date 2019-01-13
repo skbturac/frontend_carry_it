@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import {
-  Divider,
-  Header,
-  Image,
-  Segment,
-  Icon,
-  Button
-} from "semantic-ui-react";
+import { Divider, Header, Segment, Button } from "semantic-ui-react";
 
 class ProfileDescription extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     return (
       <div className="profile-description">
@@ -17,16 +14,18 @@ class ProfileDescription extends Component {
           BlaasPatrickMaclean
           <Divider section />
           <Header as="h3">Bio</Header>
-          <i class="quote left icon" />
-          Lorem ipsum dolor sit amet, cons Lorem ipsum dolor sit amet, cons
-          Lorem ipsum dolor sit amet, cons
+          <Segment>
+            <i className="quote left icon" />
+            Lorem ipsum dolor sit amet, cons Lorem ipsum dolor sit amet, cons
+            Lorem ipsum dolor sit amet, cons
+          </Segment>
           <Divider section />
           <Header as="h3">Email Address</Header>
-          <i class="envelope icon" />
+          <i className="envelope icon" />
           selo@gmail.com
           <Divider section />
           <Header as="h3">Phone Number</Header>
-          <i class="phone icon" />
+          <i className="phone icon" />
           (310) 443 - 4345
           <Divider section />
           <Button primary>Edit</Button>

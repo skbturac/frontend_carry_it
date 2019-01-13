@@ -4,15 +4,13 @@ import React, { Component } from "react";
 import { Menu, Segment } from "semantic-ui-react";
 
 class MenuBar extends Component {
-  state = {
-    activeItem: "home"
-  };
+  constructor(props) {
+    super(props);
+  }
 
-  handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
-  };
   render() {
-    const { activeItem } = this.state;
+    console.log("MenuBar Props are", this.props)
+  const { activeItem } = this.props;
 
     return (
       <div className="menu-container">
@@ -22,23 +20,23 @@ class MenuBar extends Component {
             <Menu.Item
               name="home"
               active={activeItem === "home"}
-              onClick={this.handleItemClick}
+              onClick={this.props.handleItemClick}
               position="right"
             />
             <Menu.Item
               name="Message"
               active={activeItem === "Message"}
-              onClick={this.handleItemClick}
+              onClick={this.props.handleItemClick}
             />
             <Menu.Item
               name="Activity"
               active={activeItem === "Activity"}
-              onClick={this.handleItemClick}
+              onClick={this.props.handleItemClick}
             />
             <Menu.Item
               name="Log Out"
               active={activeItem === "Log Out"}
-              onClick={this.handleItemClick}
+              onClick={this.props.handleItemClick}
             />
           </Menu>
         </Segment>

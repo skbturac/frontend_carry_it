@@ -20,17 +20,15 @@
 }
 
 .App-link {
-  /* color: #61dafb; */
 }
-
 .homepage-container {
 }
 .header-container {
 }
 .landing-page {
+  background-color: #f9fbf8;
 }
 .landing-page-container {
-  background-color: #f9fbf8;
 }
 .user-login-signup-container {
   margin: 2em;
@@ -54,14 +52,51 @@
 .middl.ligned.column {
   margin: 2em;
 }
+.homepage-container {
+  background-color: #f9fbf8;
+}
 .profile-container {
   margin: 2em;
   padding: 2em;
-  float: left;
+  float: right;
 }
 .profile-description {
   margin: 2em;
   padding: 2em;
   height: 400px;
   width: 400px;
+}
+.bags-container {
+  margin: 2em;
+  padding: 2em;
+  max-width: 350px;
+}
+.bag-container {
+  margin: 2em;
+  padding: 2em;
+  max-width: 350px;
+}
+.ui.card {
+  margin: 2em;
+  padding: 2em;
+  max-width: 350px;
+}
+.post-package-container {
+  margin: 2em;
+  padding: 2em;
+  max-width: 350px;
+}
+.your-packages-and-postfrom-container {
+  margin: 2em;
+  padding: 2em;
+  /* max-width: 350px; */
+}
+.activity-card-container {
+  margin: 2em;
+  padding: 2em;
+  max-width: 250px;
+}
+.search-box {
+  margin: 2em;
+  padding: 2em;
 }
