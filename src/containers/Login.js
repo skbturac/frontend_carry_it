@@ -6,11 +6,9 @@ import { Divider, Grid, Segment, Button, Popup } from "semantic-ui-react";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      fkjsn: "",
-      passwordInput: ""
-    };
+    this.state = {};
   }
+
   render() {
     return (
       <div className="user-login-signup-container">
@@ -18,12 +16,12 @@ class Login extends Component {
           <Grid columns={2} relaxed="very" stackable>
             <Grid.Column>
               <div className="user-login-container">
-                <UserLoginForm />
+                <UserLoginForm handleAuth={this.props.handleAuth} />
               </div>
             </Grid.Column>
             <Grid.Column verticalAlign="middle">
               <Popup
-                trigger={<Button content='Sign up' icon='signup' size='big' />}
+                trigger={<Button content="Sign up" icon="signup" size="big" />}
                 flowing
                 hoverable
               >

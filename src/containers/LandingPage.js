@@ -4,11 +4,17 @@ import LandingMenuBar from "../components/LandingMenuBar";
 import Login from "./Login"
 
 class LandingPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
+
   render() {
     return (
       <div className="landing-page">
           <LandingMenuBar />
-          <Login />
+          <Login handleAuth={this.props.handleAuth} />
       </div>
     );
   }

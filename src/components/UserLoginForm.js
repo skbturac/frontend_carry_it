@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Form, Button } from "semantic-ui-react";
 
+
 class UserLoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userNameInput: "",
-      passwordInput: ""
+      passwordInput: "",
+
     };
   }
 
@@ -19,8 +21,6 @@ class UserLoginForm extends Component {
   };
 
   handleSubmit = () => {
-    // const body = {
-    // }
     fetch("http://localhost:4000/api/v1/login", {
       method: "POST",
       headers: {
@@ -36,14 +36,21 @@ class UserLoginForm extends Component {
     })
       .then(response => response.json())
       .then(json => {
+        localStorage.setItem('token', json.jwt)
         console.log(json);
-        // debugger
       });
+      if (localStorage.getItem('token') !== null) {
+        this.props.handleAuth()
+      } else {
+        console.log("Please Sign In")
+      }
   };
+  //Get Token - localStorage.getItem('token')
 
   render() {
     console.log(this.state.userNameInput);
     console.log(this.state.passwordInput);
+    console.log(this.props);
     return (
       <div className="user-login-form">
         {" "}
@@ -75,3 +82,10 @@ class UserLoginForm extends Component {
 }
 
 export default UserLoginForm;
+
+// fetch('http://localhost:3000/api/v1/profile', {
+//   method: 'GET',
+//   headers: {
+//     Authorization: `Bearer <token>`
+//   }
+// })

@@ -11,12 +11,18 @@ class App extends Component {
     };
   }
 
+  handleAuth = () => {
+    this.setState({
+      loggedIn: true
+    });
+  };
+
   // {this.state.loggedIn ? true : false }
   whatToRender = () => {
     if (this.state.loggedIn === false) {
-      return <LandingPage />;
+      return <LandingPage handleAuth={this.handleAuth}  />;
     } else {
-      return <Homepage />;
+      return <Homepage handleAuth={this.handleAuth} />;
     }
   };
 

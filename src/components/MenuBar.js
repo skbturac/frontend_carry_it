@@ -9,17 +9,17 @@ class MenuBar extends Component {
   }
 
   render() {
-    console.log("MenuBar Props are", this.props)
-  const { activeItem } = this.props;
+    console.log("MenuBar Props are", this.props);
+    console.log(localStorage.getItem('token'));
+    const { activeItem } = this.props;
 
     return (
       <div className="menu-container">
-        <Segment inverted>
-          <Menu inverted secondary>
-            <Menu.Item as="h1" content="Carry It" />
+          <Menu secondary size="massive">
+            <Menu.Item header>Carry It</Menu.Item>
             <Menu.Item
-              name="home"
-              active={activeItem === "home"}
+              name="Profile"
+              active={activeItem === "Profile"}
               onClick={this.props.handleItemClick}
               position="right"
             />
@@ -39,7 +39,6 @@ class MenuBar extends Component {
               onClick={this.props.handleItemClick}
             />
           </Menu>
-        </Segment>
       </div>
     );
   }

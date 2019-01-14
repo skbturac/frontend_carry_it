@@ -3,13 +3,15 @@ import MenuBar from "../components/MenuBar";
 import Profile from "../components/Profile";
 import PostContainer from "../containers/PostContainer";
 import BagContainer from "../containers/BagContainer";
+import ProfileContainer from "./ProfileContainer";
+import ActivityContainer from "./ActivityContainer";
 import { Header } from "semantic-ui-react";
 
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeItem: "home"
+      activeItem: "Activity"
     };
   }
 
@@ -18,25 +20,23 @@ class Homepage extends Component {
     this.setState({ activeItem: name });
   };
 
+  handleSubmit = () => {};
+
+  whatToRender = () => {
+    if (this.state.activeItem === "Log Out") {
+      localStorage.removeItem("token");
+    } else if (this.state.activeItem === "Profile") {
+      return <ProfileContainer handleItemClick={this.handleItemClick} />;
+    } else if (this.state.activeItem === "Activity") {
+      return <ActivityContainer handleItemClick={this.handleItemClick} />;
+    } else if (this.state.activeItem === "Messages") {
+      this.props.handleAuth()
+    }
+  };
+
   render() {
-    return (
-      <div className="homepage-container">
-        <div className="Menu-bar">
-          <MenuBar handleItemClick={this.handleItemClick} />
-        </div>
-        <div className="profile-container">
-          <Profile handleItemClick={this.handleItemClick} />
-        </div>
-        <div className="bags-container">
-          <Header as="h2" icon="boxes" content="Packages to deliver" />
-          <BagContainer handleItemClick={this.handleItemClick} />
-        </div>
-        <div className="post-package-container">
-          <Header as="h2" icon="shipping fast" content="Shiping Order" />
-          <PostContainer handleItemClick={this.handleItemClick} />
-        </div>
-      </div>
-    );
+    console.log(this.state.activeItem);
+    return <div className="homepage-container">{this.whatToRender()}</div>;
   }
 }
 

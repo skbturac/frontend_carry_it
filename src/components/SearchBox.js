@@ -5,11 +5,17 @@ class SearchBox extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <div className="search-box">
-        <Input icon="search" placeholder="Search..." />
+        <Input
+          style={{ width: "290px" }}
+          icon="search"
+          placeholder="Search by Destination Zipcode"
+          type="text"
+          onChange={this.props.handleSearch}
+        />
       </div>
     );
   }

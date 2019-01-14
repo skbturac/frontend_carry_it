@@ -2,14 +2,14 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #f9fbf8;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
 .header-container {
 }
 .landing-page {
-  background-color: #f9fbf8;
+  /* background-color: #f9fbf8; */
 }
 .landing-page-container {
 }
@@ -53,7 +53,7 @@
   margin: 2em;
 }
 .homepage-container {
-  background-color: #f9fbf8;
+  /* background-color: #f9fbf8; */
 }
 .profile-container {
   margin: 2em;
@@ -76,10 +76,19 @@
   padding: 2em;
   max-width: 350px;
 }
-.ui.card {
-  margin: 2em;
-  padding: 2em;
-  max-width: 350px;
+.ui.centered.raised.card {
+  max-width: 200px;
+  max-height: 380px;
+  /* float: left; */
+}
+.bag-item-container:after {
+  /* content: "";
+  display: table;
+  clear: both; */
+}
+.ui.medium.image {
+  /* max-width: 200px;
+  max-height: 200px; */
 }
 .post-package-container {
   margin: 2em;
