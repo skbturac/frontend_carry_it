@@ -17,12 +17,18 @@ class App extends Component {
     });
   };
 
+  handleLogOut = () => {
+    this.setState({
+      loggedIn: false
+    });
+  };
+
   // {this.state.loggedIn ? true : false }
   whatToRender = () => {
     if (this.state.loggedIn === false) {
       return <LandingPage handleAuth={this.handleAuth}  />;
     } else {
-      return <Homepage handleAuth={this.handleAuth} />;
+      return <Homepage handleAuth={this.handleAuth} handleLogOut={this.handleLogOut}/>;
     }
   };
 

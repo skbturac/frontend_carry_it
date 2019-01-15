@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Divider, Header, Segment, Button } from "semantic-ui-react";
+import UserEditForm from "./userEditForm";
+import { Divider, Header, Segment, Button, Popup } from "semantic-ui-react";
 
 class ProfileDescription extends Component {
   constructor(props) {
@@ -7,29 +8,37 @@ class ProfileDescription extends Component {
   }
 
   render() {
+    console.log("ProfileDescription Props Are ---", this.props);
+
     return (
       <div className="profile-description">
         <Segment>
           <Header as="h3">Username</Header>
-          BlaasPatrickMaclean
+          {this.props.userInfo.username}
           <Divider section />
           <Header as="h3">Bio</Header>
           <Segment>
             <i className="quote left icon" />
-            Lorem ipsum dolor sit amet, cons Lorem ipsum dolor sit amet, cons
-            Lorem ipsum dolor sit amet, cons
+            {this.props.userInfo.bio}
           </Segment>
           <Divider section />
           <Header as="h3">Email Address</Header>
           <i className="envelope icon" />
-          selo@gmail.com
+          {this.props.userInfo.email_address}
           <Divider section />
           <Header as="h3">Phone Number</Header>
           <i className="phone icon" />
-          (310) 443 - 4345
+          {this.props.userInfo.phone_number}
           <Divider section />
-          <Button primary>Edit</Button>
-          <Button primary>Save</Button>
+          <Popup
+            trigger={<Button content="Edit" icon="edit" size="big" />}
+            flowing
+            hoverable
+          >
+            <div className="user-edit-container">
+              <UserEditForm />
+            </div>
+          </Popup>
         </Segment>
       </div>
     );

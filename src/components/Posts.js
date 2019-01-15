@@ -1,24 +1,35 @@
 import React, { Component } from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Button, Dimmer, Header, Image } from "semantic-ui-react";
 
 class Posts extends Component {
+  state = {};
+
+  handleShow = () => this.setState({ active: true });
+  handleHide = () => this.setState({ active: false });
+
   render() {
-    return (
-      <div className="posts-container">
-        <Image src="https://pamco-imaging.com/wp-content/uploads/2017/12/parcel-500-660-500x600.jpg" />
-        <Card.Content>
-          <Card.Description>
-            <Card.Header>Daniel Asela</Card.Header>A box of notebooks
-          </Card.Description>
-          <Card.Meta>Scheduled Delivery Tomorrow, Jan 12 2018</Card.Meta>
-        </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name="user" />
-            10 Viewed
-          </a>
-        </Card.Content>
+    const { active } = this.state;
+    const content = (
+      <div>
+        <Header as="h2" inverted>
+          Title
+        </Header>
+
+        <Button primary>Add</Button>
+        <Button>View</Button>
       </div>
+    );
+
+    return (
+      <Dimmer.Dimmable
+        as={Image}
+        dimmed={active}
+        dimmer={{ active, content }}
+        onMouseEnter={this.handleShow}
+        onMouseLeave={this.handleHide}
+        size="medium"
+        src="https://pamco-imaging.com/wp-content/uploads/2017/12/parcel-500-660-500x600.jpg"
+      />
     );
   }
 }

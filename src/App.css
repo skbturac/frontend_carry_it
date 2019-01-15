@@ -30,6 +30,9 @@
 }
 .landing-page-container {
 }
+.menu-container {
+  padding: 2em;
+}
 .user-login-signup-container {
   margin: 2em;
   padding: 2em;
@@ -56,8 +59,8 @@
   /* background-color: #f9fbf8; */
 }
 .profile-container {
-  margin: 2em;
-  padding: 2em;
+  margin: 1em;
+  padding: 1em;
   float: right;
 }
 .profile-description {
@@ -67,7 +70,7 @@
   width: 400px;
 }
 .bags-container {
-  margin: 2em;
+  margin: 5em;
   padding: 2em;
   max-width: 350px;
 }
@@ -91,7 +94,7 @@
   max-height: 200px; */
 }
 .post-package-container {
-  margin: 2em;
+  margin: 5em;
   padding: 2em;
   max-width: 350px;
 }
@@ -106,6 +109,8 @@
   max-width: 250px;
 }
 .search-box {
-  margin: 2em;
   padding: 2em;
+}
+.ui.medium.circular.image {
+  min-width: 150px;
 }

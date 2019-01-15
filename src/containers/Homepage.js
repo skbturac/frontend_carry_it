@@ -24,13 +24,13 @@ class Homepage extends Component {
 
   whatToRender = () => {
     if (this.state.activeItem === "Log Out") {
-      localStorage.removeItem("token");
+      localStorage.removeItem("token") && this.props.handleLogOut();
     } else if (this.state.activeItem === "Profile") {
       return <ProfileContainer handleItemClick={this.handleItemClick} />;
     } else if (this.state.activeItem === "Activity") {
       return <ActivityContainer handleItemClick={this.handleItemClick} />;
     } else if (this.state.activeItem === "Messages") {
-      this.props.handleAuth()
+      this.props.handleAuth();
     }
   };
 

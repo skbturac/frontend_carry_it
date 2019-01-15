@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
 
-class UserSignUpForm extends Component {
+class UserEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      imageURLInput: "",
       firstNameInput: "",
       lastNameInput: "",
       userNameInput: "",
-      passwordInput: ""
+      bioInput: "",
+      email_addressInput: "",
+      phone_numberInput: ""
     };
   }
 
@@ -21,21 +24,22 @@ class UserSignUpForm extends Component {
   };
 
   handleSubmit = () => {
-    fetch("http://localhost:4000/api/v1/users", {
-      method: "POST",
+    fetch(`http://localhost:4000/api/v1/update`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify({
         user: {
           first_name: this.state.firstNameInput,
           last_name: this.state.lastNameInput,
           username: this.state.userNameInput,
-          password: this.state.passwordInput,
-          bio: "I only rap caucasionally.",
-          avatar:
-            "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+          bio: this.state.bioInput,
+          avatar: this.state.imageURLInput,
+          email_address: this.state.email_addressInput,
+          phone_number: this.state.phone_numberInput
         }
       })
     })
@@ -46,11 +50,17 @@ class UserSignUpForm extends Component {
   };
 
   render() {
-    console.log(this.state.userNameInput);
-    console.log(this.state.passwordInput);
     return (
       <div className="user-signup-form">
         <Form onSubmit={this.handleSubmit}>
+          <Form.Input
+            iconPosition="left"
+            label="Profile Image"
+            placeholder="Copy & Past URL"
+            value={this.state.imageURLInput}
+            onChange={this.handleInputChange}
+            name="imageURLInput"
+          />
           <Form.Input
             iconPosition="left"
             label="First Name"
@@ -76,20 +86,35 @@ class UserSignUpForm extends Component {
             name="userNameInput"
           />
           <Form.Input
-            icon="lock"
             iconPosition="left"
-            label="Password"
-            type="password"
-            value={this.state.passwordInput}
+            label="Bio"
+            placeholder="Bio"
+            value={this.state.bioInput}
             onChange={this.handleInputChange}
-            name="passwordInput"
+            name="bioInput"
+          />
+          <Form.Input
+            iconPosition="left"
+            label="Email Address"
+            placeholder="Email Address"
+            value={this.state.email_addressInput}
+            onChange={this.handleInputChange}
+            name="email_addressInput"
+          />
+          <Form.Input
+            iconPosition="left"
+            label="Phone Number"
+            placeholder="Phone Number"
+            value={this.state.phone_numberInput}
+            onChange={this.handleInputChange}
+            name="phone_numberInput"
           />
 
-          <Button content="Sign up" icon="signup" size="medium" primary />
+          <Button content="Save" icon="save" size="medium" primary />
         </Form>
       </div>
     );
   }
 }
 
-export default UserSignUpForm;
+export default UserEditForm;

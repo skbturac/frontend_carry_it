@@ -21,12 +21,10 @@ class ActivityContainer extends Component {
   render() {
     return (
       <div className="activity-container">
-        <MenuBar handleItemClick={this.props.handleItemClick}/>
-        <SearchBox handleSubmit={this.props.handleSubmit}/>
+        <MenuBar handleItemClick={this.props.handleItemClick} />
+        <SearchBox handleSubmit={this.props.handleSubmit} />
         <div className="activity-card-container">
-          <Card floated="right">
-            <Posts handleItemClick={this.props.handleItemClick} />
-          </Card>
+          <Posts handleItemClick={this.props.handleItemClick} />
         </div>
       </div>
     );

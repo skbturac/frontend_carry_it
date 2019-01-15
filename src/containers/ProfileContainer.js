@@ -5,34 +5,32 @@ import PostContainer from "../containers/PostContainer";
 import BagContainer from "../containers/BagContainer";
 import { Header } from "semantic-ui-react";
 
-URL = `http://localhost:4000/api/v1/profile`
+URL = `http://localhost:4000/api/v1/profile`;
 
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInfo:""
+      userInfo: ""
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(URL, {
-      method: 'GET',
-      headers:{
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
       }
     })
       .then(response => response.json())
       .then(profileData => {
-        console.log('Before fetch --', profileData);
-        this.setState({userInfo: profileData})
-        console.log('After fetch --', profileData);
-      })
+        console.log("Before fetch --", profileData);
+        this.setState({ userInfo: profileData });
+        console.log("After fetch --", profileData);
+      });
   }
 
-  handleDisplay = () => {
-    
-  }
+  handleDisplay = () => {};
 
   render() {
     console.log(this.state.activeItem);
@@ -45,7 +43,11 @@ class ProfileContainer extends Component {
           />
         </div>
         <div className="profile-container">
-          <Profile handleItemClick={this.props.handleItemClick} />
+          <Profile
+            handleDisplay={this.handleDisplay}
+            handleItemClick={this.props.handleItemClick}
+            userInfo={this.state.userInfo}
+          />
         </div>
         <div className="bags-container">
           <Header as="h2" icon="boxes" content="Packages to deliver" />
