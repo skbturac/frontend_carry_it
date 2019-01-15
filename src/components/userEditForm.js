@@ -5,13 +5,14 @@ class UserEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageURLInput: "",
-      firstNameInput: "",
-      lastNameInput: "",
-      userNameInput: "",
-      bioInput: "",
-      email_addressInput: "",
-      phone_numberInput: ""
+      imageURLInput: this.props.userInfo.userInfo.avatar,
+      firstNameInput: this.props.userInfo.userInfo.first_name,
+      lastNameInput: this.props.userInfo.userInfo.last_name,
+      userNameInput: this.props.userInfo.userInfo.username,
+      bioInput: this.props.userInfo.userInfo.bio,
+      email_addressInput: this.props.userInfo.userInfo.email_address,
+      phone_numberInput: this.props.userInfo.userInfo.phone_number,
+      home_addressInput: this.props.userInfo.userInfo.home_address
     };
   }
 
@@ -39,7 +40,8 @@ class UserEditForm extends Component {
           bio: this.state.bioInput,
           avatar: this.state.imageURLInput,
           email_address: this.state.email_addressInput,
-          phone_number: this.state.phone_numberInput
+          phone_number: this.state.phone_numberInput,
+          home_address: this.state.home_addressInput
         }
       })
     })
@@ -50,6 +52,7 @@ class UserEditForm extends Component {
   };
 
   render() {
+    console.log(this.props.userInfo.userInfo);
     return (
       <div className="user-signup-form">
         <Form onSubmit={this.handleSubmit}>
@@ -100,6 +103,14 @@ class UserEditForm extends Component {
             value={this.state.email_addressInput}
             onChange={this.handleInputChange}
             name="email_addressInput"
+          />
+          <Form.Input
+            iconPosition="left"
+            label="Home Address"
+            placeholder="Home Address"
+            value={this.state.home_addressInput}
+            onChange={this.handleInputChange}
+            name="home_addressInput"
           />
           <Form.Input
             iconPosition="left"

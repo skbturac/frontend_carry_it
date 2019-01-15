@@ -26,6 +26,10 @@ class ProfileDescription extends Component {
           <i className="envelope icon" />
           {this.props.userInfo.email_address}
           <Divider section />
+          <Header as="h3">Home Address</Header>
+          <i className="address icon" />
+          {this.props.userInfo.home_address}
+          <Divider section />
           <Header as="h3">Phone Number</Header>
           <i className="phone icon" />
           {this.props.userInfo.phone_number}
@@ -36,7 +40,7 @@ class ProfileDescription extends Component {
             hoverable
           >
             <div className="user-edit-container">
-              <UserEditForm />
+              <UserEditForm userInfo={this.props}/>
             </div>
           </Popup>
         </Segment>
