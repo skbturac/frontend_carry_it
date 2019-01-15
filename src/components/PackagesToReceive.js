@@ -1,16 +1,14 @@
-import React, { Component, Fragment } from "react";
-import AddNewBagItem from "./AddNewBagItem";
-import { Grid, Card, Icon, Image, Button } from "semantic-ui-react";
+import React, { Component } from "react";
+import { Grid, Card, Icon, Image } from "semantic-ui-react";
 
-class BagItem extends Component {
+class PackagesToReceive extends Component {
   render() {
     return (
       <>
         <Grid.Column>
-          <Card raised centered>
+          <Card size="small" raised centered>
             <Image
-              as="a"
-              size="massive"
+              size="large"
               src="https://pamco-imaging.com/wp-content/uploads/2017/12/parcel-500-660-500x600.jpg"
             />
             <Card.Content>
@@ -27,10 +25,9 @@ class BagItem extends Component {
             </Card.Content>
           </Card>
         </Grid.Column>
-        <AddNewBagItem />
       </>
     );
   }
 }
 
-export default BagItem;
+export default PackagesToReceive;

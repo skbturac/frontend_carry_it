@@ -9,7 +9,6 @@
   height: 40vmin;
 }
 .App-header {
-  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,7 +17,74 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.menu-container {
+  padding: 2em;
+}
+.user-login-signup-container {
+  padding: 6em;
+  margin: auto;
+  max-width: 1000px;
+}
+.profile-container {
+  margin-top: 1em;
+  margin-right: 2em;
+  padding-top: 1em;
+  padding-right: 2em;
+  float: right;
+}
+.profile-description {
+  padding: 2em;
+  max-width: 400px;
+}
+.bags-container {
+  margin: 5em;
+  padding-left: 3em;
+  max-width: 700px;
+}
+.ui.three.column.grid.bag-container {
+  padding: 2em;
+}
+.post-package-container {
+  margin: 5em;
+  padding-left: 3em;
+  max-width: 700px;
+}
+.ui.three.column.grid.your-packages-and-postfrom-container {
+  padding: 2em;
+}
+.activity-card-container {
+  margin: 2em;
+  padding: 2em;
+}
+.search-box {
+  padding: 2em;
+}
+.receiver-packages-container {
+  margin: 5em;
+  padding-left: 3em;
+  max-width: 700px;
+}
+.ui.three.column.grid.receiver-container {
+  padding: 2em;
+}
+.ui.placeholder.segment {
+  /* margin: 20em;
+  padding: 20em; */
+}
+.user-login-container {
+  /* margin: 2em;
+  padding: 1em; */
+}
+.user-signup-container {
+  /* margin: 2em; */
+}
+.middl.ligned.column {
+  /* margin: 2em; */
+}
+.column {
+}
+.ui.massive.image {
+}
 .App-link {
 }
 .homepage-container {
@@ -26,91 +92,20 @@
 .header-container {
 }
 .landing-page {
-  /* background-color: #f9fbf8; */
 }
 .landing-page-container {
 }
-.menu-container {
-  padding: 2em;
-}
-.user-login-signup-container {
-  margin: 2em;
-  padding: 2em;
-}
-.ui.placeholder.segment {
-  margin: 20em;
-  padding: 20em;
-}
 .user-login-signup-container-background-image {
-}
-.user-login-container {
-  margin: 2em;
-  padding: 1em;
 }
 .ui.stackable.very.relaxed.two.column.grid {
 }
-.user-signup-container {
-  margin: 2em;
-}
-.middl.ligned.column {
-  margin: 2em;
-}
 .homepage-container {
-  /* background-color: #f9fbf8; */
-}
-.profile-container {
-  margin: 1em;
-  padding: 1em;
-  float: right;
-}
-.profile-description {
-  margin: 2em;
-  padding: 2em;
-  height: 400px;
-  width: 400px;
-}
-.bags-container {
-  margin: 5em;
-  padding: 2em;
-  max-width: 350px;
-}
-.bag-container {
-  margin: 2em;
-  padding: 2em;
-  max-width: 350px;
 }
 .ui.centered.raised.card {
-  max-width: 200px;
-  max-height: 380px;
-  /* float: left; */
 }
 .bag-item-container:after {
-  /* content: "";
-  display: table;
-  clear: both; */
-}
-.ui.medium.image {
-  /* max-width: 200px;
-  max-height: 200px; */
-}
-.post-package-container {
-  margin: 5em;
-  padding: 2em;
-  max-width: 350px;
-}
-.your-packages-and-postfrom-container {
-  margin: 2em;
-  padding: 2em;
-  /* max-width: 350px; */
-}
-.activity-card-container {
-  margin: 2em;
-  padding: 2em;
-  max-width: 250px;
-}
-.search-box {
-  padding: 2em;
 }
 .ui.medium.circular.image {
-  min-width: 150px;
+}
+.box.massive.disabled.icon.IconNewBag {
 }

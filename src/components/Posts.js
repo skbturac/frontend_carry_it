@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Dimmer, Header, Image } from "semantic-ui-react";
+import { Button, Dimmer, Header, Image } from 'semantic-ui-react'
 
 class Posts extends Component {
   state = {};

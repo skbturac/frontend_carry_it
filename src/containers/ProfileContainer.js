@@ -3,6 +3,7 @@ import MenuBar from "../components/MenuBar";
 import Profile from "../components/Profile";
 import PostContainer from "../containers/PostContainer";
 import BagContainer from "../containers/BagContainer";
+import ReceiverContainer from "../containers/ReceiverContainer";
 import { Header } from "semantic-ui-react";
 
 URL = `http://localhost:4000/api/v1/profile`;
@@ -56,6 +57,10 @@ class ProfileContainer extends Component {
         <div className="post-package-container">
           <Header as="h2" icon="shipping fast" content="Shiping Order" />
           <PostContainer handleItemClick={this.props.handleItemClick} />
+        </div>
+        <div className="receiver-packages-container">
+          <Header as="h2" icon="dropbox" content="Arriving Packages" />
+          <ReceiverContainer handleItemClick={this.props.handleItemClick} />
         </div>
       </div>
     );

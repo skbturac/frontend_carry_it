@@ -13,7 +13,7 @@ class ProfileImage extends Component {
         <Header as="h2">
           <Image
             as="a"
-            size="medium"
+            size="massive"
             circular
             src={this.props.userInfo.avatar}
           />
