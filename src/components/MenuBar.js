@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import Homepage from "../containers/Homepage"
 // import LandingPage from "../containers/LandingPage"
-import { Menu, Segment } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 
 class MenuBar extends Component {
   constructor(props) {

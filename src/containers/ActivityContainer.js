@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import SearchBox from "../components/SearchBox";
 import Posts from "../components/Posts";
 import MenuBar from "../components/MenuBar";
-import { Card } from "semantic-ui-react";
+// import { Card } from "semantic-ui-react";
 
 class ActivityContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   // handleSearch = (event) => {

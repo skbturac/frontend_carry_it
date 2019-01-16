@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import MenuBar from "../components/MenuBar";
-import Profile from "../components/Profile";
-import PostContainer from "../containers/PostContainer";
-import BagContainer from "../containers/BagContainer";
 import ProfileContainer from "./ProfileContainer";
 import ActivityContainer from "./ActivityContainer";
-import { Header } from "semantic-ui-react";
+// import MenuBar from "../components/MenuBar";
+// import Profile from "../components/Profile";
+// import PostContainer from "../containers/PostContainer";
+// import BagContainer from "../containers/BagContainer";
+// import { Header } from "semantic-ui-react";
 
 class Homepage extends Component {
   constructor(props) {

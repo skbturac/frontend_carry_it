@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { Grid, Card, Icon, Image, Button } from "semantic-ui-react";
+import React, { Component } from "react";
+import { Grid, Card, Icon, Button } from "semantic-ui-react";
 
 class AddNewBagItem extends Component {
   render() {
