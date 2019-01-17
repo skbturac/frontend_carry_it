@@ -40,7 +40,10 @@ class ProfileDescription extends Component {
             hoverable
           >
             <div className="user-edit-container">
-              <UserEditForm userInfo={this.props}/>
+              <UserEditForm
+                handleEdit={this.props.handleEdit}
+                userInfo={this.props}
+              />
             </div>
           </Popup>
         </Segment>

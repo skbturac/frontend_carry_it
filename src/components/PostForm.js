@@ -44,8 +44,9 @@ class PostForm extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
-      });
+        this.props.handleNewItem(json)
+        console.log(json)
+      })
   };
 
   render() {
@@ -59,7 +60,6 @@ class PostForm extends Component {
               handleInputChange={this.handleInputChange}
               handleSubmit={this.handleSubmit}
               packageInfo={this.state}
-              handleDisplay={this.props.handleDisplay}
             />
           </Card>
         </Grid.Column>

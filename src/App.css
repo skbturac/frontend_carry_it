@@ -67,6 +67,12 @@
 .ui.three.column.grid.receiver-container {
   padding: 2em;
 }
+
+.ui.card>:first-child, .ui.cards>.card>:first-child{
+    min-height: 200px;
+    max-height: 200px;
+}
+
 .ui.placeholder.segment {
   /* margin: 20em;
   padding: 20em; */

@@ -31,14 +31,15 @@ class Packages extends Component {
           />
           <Card.Content>
             <Card.Description>
+              {this.props.packageObj.description
+                ? this.props.packageObj.description
+                : null}
               <Card.Header>
+                Estimated Amount ($)
                 {this.props.packageObj.price
                   ? this.props.packageObj.price
                   : null}
               </Card.Header>
-              {this.props.packageObj.description
-                ? this.props.packageObj.description
-                : null}
             </Card.Description>
             <Card.Meta>
               Scheduled Delivery{" "}
@@ -48,19 +49,19 @@ class Packages extends Component {
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <Card.Description> Weight: </Card.Description>
+            <Card.Description> Weight (lb): </Card.Description>
             <a>
               {this.props.packageObj.weight
                 ? this.props.packageObj.weight
                 : null}
             </a>
-            <Card.Description> Height: </Card.Description>
+            <Card.Description> Height (inch) </Card.Description>
             <a>
               {this.props.packageObj.height
                 ? this.props.packageObj.height
                 : null}
             </a>
-            <Card.Description> Length: </Card.Description>
+            <Card.Description> Length (inch) </Card.Description>
             <a>
               {this.props.packageObj.length
                 ? this.props.packageObj.length
@@ -71,7 +72,7 @@ class Packages extends Component {
             <a>
               Reaching To Our Carriers
               <Icon name="user" />
-              <Loader active inline='centered' />
+              <Loader active inline="centered" />
             </a>
           </Card.Content>
 
@@ -86,11 +87,7 @@ class Packages extends Component {
 
   render() {
     console.log("Props Packages are ---,", this.props.packageData);
-    return (
-      <>
-        {this.renderCard()}
-      </>
-    )
+    return <>{this.renderCard()}</>;
   }
 }
 

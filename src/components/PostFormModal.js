@@ -4,7 +4,8 @@ import { Button, Header, Icon, Modal, Form } from "semantic-ui-react";
 class PostFormModal extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   NewPackageFormModal = () => {
@@ -18,9 +19,7 @@ class PostFormModal extends Component {
             <Header>Enter Your Pakage Details</Header>
 
             <div className="user-signup-form">
-              <Form
-                onSubmit={this.props.handleSubmit}
-              >
+              <Form onSubmit={this.props.handleSubmit}>
                 <Form.Input
                   iconPosition="left"
                   label="Package Image"
@@ -73,7 +72,6 @@ class PostFormModal extends Component {
                   content="Create Order"
                   icon="signup"
                   size="medium"
-                  onClick={() => this.props.handleDisplay()}
                   primary
                 />
               </Form>

@@ -31,6 +31,13 @@ class ProfileContainer extends Component {
       });
   }
 
+  handleEdit = (obj) => {
+    // const editedObj = [...this.state.userInfo, obj ]
+    // this.setState({
+    //   userInfo: editedObj
+    // })
+  }
+
   handleDisplay = () => {};
 
   render() {
@@ -48,15 +55,16 @@ class ProfileContainer extends Component {
             handleDisplay={this.handleDisplay}
             handleItemClick={this.props.handleItemClick}
             userInfo={this.state.userInfo}
+            handleEdit={this.handleEdit}
           />
+        </div>
+        <div className="post-package-container">
+        <Header as="h2" icon="shipping fast" content="Shiping Order" />
+        <PostContainer handleItemClick={this.props.handleItemClick} />
         </div>
         <div className="bags-container">
           <Header as="h2" icon="boxes" content="Packages to deliver" />
           <BagContainer handleItemClick={this.props.handleItemClick} />
-        </div>
-        <div className="post-package-container">
-          <Header as="h2" icon="shipping fast" content="Shiping Order" />
-          <PostContainer handleItemClick={this.props.handleItemClick} />
         </div>
         <div className="receiver-packages-container">
           <Header as="h2" icon="dropbox" content="Arriving Packages" />

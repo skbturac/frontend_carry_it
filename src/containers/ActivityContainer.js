@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchBox from "../components/SearchBox";
-import Posts from "../components/Posts";
+import ActivityPostsContainer from "../components/ActivityPostsContainer";
 import MenuBar from "../components/MenuBar";
 // import { Card } from "semantic-ui-react";
 
@@ -9,7 +9,6 @@ class ActivityContainer extends Component {
     super(props);
     this.state = {};
   }
-
   // handleSearch = (event) => {
   //   console.log(event.target.value);
   //   this.setState({searchBox: event.target.value}, () => console.log(this.state))
@@ -25,7 +24,7 @@ class ActivityContainer extends Component {
         <MenuBar handleItemClick={this.props.handleItemClick} />
         <SearchBox handleSubmit={this.props.handleSubmit} />
         <div className="activity-card-container">
-          <Posts handleItemClick={this.props.handleItemClick} />
+          <ActivityPostsContainer handleItemClick={this.props.handleItemClick} />
         </div>
       </div>
     );

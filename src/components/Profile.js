@@ -17,6 +17,7 @@ class Profile extends Component {
         <ProfileDescription
           userInfo={this.props.userInfo.user}
           handleDisplay={this.props.handleDisplay}
+          handleEdit={this.props.handleEdit}
         />
       </div>
     );
