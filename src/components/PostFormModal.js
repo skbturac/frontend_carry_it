@@ -1,11 +1,35 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal, Form } from "semantic-ui-react";
+import { Button, Header, Icon, Modal, Form, Select } from "semantic-ui-react";
 
 class PostFormModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      users: []
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:4000/api/v1/users", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(response => response.json())
+      .then(usersData => {
+        console.log("Before setState --", usersData);
+        let formattedUsers = usersData.map(user => {
+          let formatUser = {};
+          formatUser.key = user.id;
+          formatUser.text = user.username;
+          formatUser.value = user.username;
+          // image: { avatar: true, src: '/images/avatar/small/jenny.jpg' },
+          formatUser.image = { avatar: true, src: user.avatar };
+          return formatUser;
+        });
+        this.setState({ users: formattedUsers });
+      });
   }
 
   NewPackageFormModal = () => {
@@ -21,7 +45,6 @@ class PostFormModal extends Component {
             <div className="user-signup-form">
               <Form onSubmit={this.props.handleSubmit}>
                 <Form.Input
-                  iconPosition="left"
                   label="Package Image"
                   placeholder="Copy & Past URL"
                   value={this.props.packageInfo.imageURLInput}
@@ -29,7 +52,6 @@ class PostFormModal extends Component {
                   name="imageURLInput"
                 />
                 <Form.Input
-                  iconPosition="left"
                   label="Weight"
                   placeholder="Weight"
                   value={this.props.packageInfo.weightInput}
@@ -37,7 +59,6 @@ class PostFormModal extends Component {
                   name="weightInput"
                 />
                 <Form.Input
-                  iconPosition="left"
                   label="Height"
                   placeholder="Height"
                   value={this.props.packageInfo.heightInput}
@@ -45,7 +66,6 @@ class PostFormModal extends Component {
                   name="heightInput"
                 />
                 <Form.Input
-                  iconPosition="left"
                   label="Length"
                   placeholder="Length"
                   value={this.props.packageInfo.lengthInput}
@@ -53,7 +73,6 @@ class PostFormModal extends Component {
                   name="lengthInput"
                 />
                 <Form.Input
-                  iconPosition="left"
                   label="Description"
                   placeholder="Description"
                   value={this.props.packageInfo.descriptionInput}
@@ -61,12 +80,21 @@ class PostFormModal extends Component {
                   name="descriptionInput"
                 />
                 <Form.Input
-                  iconPosition="left"
                   label="Delivery Date"
                   placeholder="Arrival Date"
                   value={this.props.packageInfo.deliverydateInput}
                   onChange={this.props.handleInputChange}
                   name="deliverydateInput"
+                />
+                <Form.Select
+                  fluid
+                  search
+                  selection
+                  options={this.state.users}
+                  onChange={this.props.handleDropdownChange}
+                  label="Select Receiver"
+                  placeholder="Receiver"
+                  name="receiverIdInput"
                 />
                 <Button
                   content="Create Order"
@@ -77,14 +105,13 @@ class PostFormModal extends Component {
               </Form>
             </div>
           </Modal.Description>
-          <Modal.Actions />
         </Modal.Content>
+        <Modal.Header> </Modal.Header>
       </Modal>
     );
   };
 
   render() {
-    console.log("Props PostFormModal aree ---,", this.props);
     return <>{this.NewPackageFormModal()}</>;
   }
 }
@@ -107,3 +134,20 @@ export default PostFormModal;
 //   This is an example of expanded content that will cause the modal's
 //   dimmer to scroll
 // </p>
+// <Form.Input
+//   iconPosition="left"
+//   label="Select Receiver"
+//   placeholder="Select Receiver"
+//   value={this.props.packageInfo.receiverIdInput}
+//   onChange={this.props.handleInputChange}
+//   name="receiverIdInput"
+// />
+
+// <Form.Select
+//   options={this.state.users.map(user => (<li key={user.id}>{user.username}</li>))}
+//   onChange={this.props.handleInputChange}
+//   value={this.props.packageInfo.receiverIdInput}
+//   label="Select Receiver"
+//   placeholder="Select Receiver"
+//   name="receiverIdInput"
+// />

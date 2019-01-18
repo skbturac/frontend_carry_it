@@ -72,6 +72,10 @@
     min-height: 200px;
     max-height: 200px;
 }
+.ui.card>:first-child, .ui.cards>.card>:first-child {
+    min-height: inherit;
+    max-height: inherit;
+}
 
 .ui.placeholder.segment {
   /* margin: 20em;

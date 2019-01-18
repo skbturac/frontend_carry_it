@@ -12,7 +12,7 @@ class ProfileContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInfo: ""
+      userInfo: {}
     };
   }
 
@@ -32,16 +32,16 @@ class ProfileContainer extends Component {
   }
 
   handleEdit = (obj) => {
-    // const editedObj = [...this.state.userInfo, obj ]
+    // debugger
     // this.setState({
-    //   userInfo: editedObj
+    //   userInfo: obj
     // })
   }
 
-  handleDisplay = () => {};
+  // handleDisplay = () => {};
 
   render() {
-    console.log(this.state.activeItem);
+    console.log("!!!!",this.state);
     return (
       <div className="homepage-container">
         <div className="Menu-bar">

@@ -47,11 +47,7 @@ class UserEditForm extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
-      })
-      .then(json => {
         this.props.handleEdit(json)
-        console.log(json)
       })
   };
 

@@ -6,12 +6,13 @@ class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      imageURLInput: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Package.svg",
       weightInput: "",
       heightInput: "",
       lengthInput: "",
       descriptionInput: "",
       deliverydateInput: "",
-      imageURLInput: ""
+      receiverIdInput: ""
     };
   }
 
@@ -22,6 +23,13 @@ class PostForm extends Component {
       [event.target.name]: event.target.value
     });
   };
+
+  handleDropdownChange = (event, {value}) => {
+    console.log(event.target.value);
+    this.setState({
+      receiverIdInput: value
+    })
+  }
 
   handleSubmit = () => {
     fetch("http://localhost:4000/api/v1/packages", {
@@ -38,7 +46,8 @@ class PostForm extends Component {
           length: this.state.lengthInput,
           description: this.state.descriptionInput,
           delivery_date: this.state.deliverydateInput,
-          image: this.state.imageURLInput
+          image: this.state.imageURLInput,
+          receiver_id: this.state.receiverIdInput,
         }
       })
     })
@@ -60,6 +69,7 @@ class PostForm extends Component {
               handleInputChange={this.handleInputChange}
               handleSubmit={this.handleSubmit}
               packageInfo={this.state}
+              handleDropdownChange={this.handleDropdownChange}
             />
           </Card>
         </Grid.Column>

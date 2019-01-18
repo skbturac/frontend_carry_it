@@ -21,10 +21,8 @@ class PostContainer extends Component {
     })
       .then(response => response.json())
       .then(packData => {
-        // debugger
         console.log("Before fetch --", packData);
-        this.setState({ packageData: packData });
-        console.log("After fetch --", packData);
+        this.setState({ packageData: packData }, () => console.log("After fetch --", packData) );
       });
   }
 

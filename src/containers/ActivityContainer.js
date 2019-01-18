@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SearchBox from "../components/SearchBox";
 import ActivityPostsContainer from "../components/ActivityPostsContainer";
 import MenuBar from "../components/MenuBar";
-// import { Card } from "semantic-ui-react";
 
 class ActivityContainer extends Component {
   constructor(props) {

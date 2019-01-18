@@ -1,12 +1,14 @@
-import React, { Component } from "react";
-import ActivityPosts from './ActivityPosts'
-import { Grid } from 'semantic-ui-react'
+import React, { Component, Fragment } from "react";
+import Requests from "./Requests";
+import { Grid } from "semantic-ui-react";
 
 class ActivityPostsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      servicesData: []
+      requests: [],
+      users: [],
+      services: []
     };
   }
 
@@ -18,27 +20,55 @@ class ActivityPostsContainer extends Component {
       }
     })
       .then(response => response.json())
-      .then(serviceData => {
-        // debugger
-        console.log("Before fetch --", serviceData);
-        this.setState({ servicesData: serviceData });
-        console.log("After fetch --", serviceData);
+      .then(requestsData => {
+        console.log("Before fetch --", requestsData);
+        this.setState({ requests: requestsData });
+        console.log("After fetch --", requestsData);
+      });
+    fetch("http://localhost:4000/api/v1/users", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(response => response.json())
+      .then(usersData => {
+        console.log("Before fetch --", usersData);
+        this.setState({ users: usersData });
+        console.log("After fetch --", usersData);
       });
   }
+  createService = () => {
+    fetch("http://localhost:4000/api/v1/services", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(response => response.json())
+      .then(servicesData => {
+        console.log("Before fetch --", servicesData);
+        this.setState({ services: servicesData });
+        console.log("!!!! After fetch --", servicesData);
+      });
+  };
 
   renderActivityPosts = () => {
-
-  }
+    return this.state.requests.map(serviceObj => (
+      <Requests createService={()=>this.createService()} serviceObj={serviceObj} key={serviceObj.id} />
+    ));
+  };
 
   render() {
-    console.log("Before fetch --", this.servicesData);
+    console.log("Before fetch --", this.state.requests);
+    console.log("Before fetch --", this.state.users);
 
     return (
-      <>
-        <Grid className="activity-posts-container" columns={6}>
+      <Fragment>
+        <Grid className="activity-requests-container" columns={4}>
           {this.renderActivityPosts()}
         </Grid>
-      </>
+      </Fragment>
     );
   }
 }

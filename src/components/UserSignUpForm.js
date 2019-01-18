@@ -35,7 +35,7 @@ class UserSignUpForm extends Component {
           password: this.state.passwordInput,
           bio: "I only rap caucasionally.",
           avatar:
-            "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+            "https://media.istockphoto.com/photos/businessman-silhouette-as-avatar-or-default-profile-picture-picture-id476085198?k=6&m=476085198&s=612x612&w=0&h=5cDQxXHFzgyz8qYeBQu2gCZq1_TN0z40e_8ayzne0X0="
         }
       })
     })
