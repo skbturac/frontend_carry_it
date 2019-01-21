@@ -16,7 +16,7 @@ class Homepage extends Component {
   }
 
   handleItemClick = (event, { name }) => {
-    console.log(event.target);
+    // console.log(event.target);
     this.setState({ activeItem: name });
   };
 
@@ -35,7 +35,7 @@ class Homepage extends Component {
   };
 
   render() {
-    console.log(this.state.activeItem);
+    // console.log(this.state.activeItem);
     return <div className="homepage-container">{this.whatToRender()}</div>;
   }
 }

@@ -24,6 +24,7 @@ class Profile extends Component {
   };
 
   render() {
+    // debugger
     return this.props.userInfo.user ? this.renderUserDetails() : null;
   }
 }

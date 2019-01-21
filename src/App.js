@@ -11,6 +11,10 @@ class App extends Component {
     };
   }
 
+  handleLogIn = () => {
+    
+  }
+
   handleAuth = () => {
     this.setState({
       loggedIn: true

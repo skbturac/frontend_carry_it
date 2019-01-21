@@ -8,7 +8,7 @@ class ProfileDescription extends Component {
   }
 
   render() {
-    console.log("ProfileDescription Props Are ---", this.props);
+    // console.log("ProfileDescription Props Are ---", this.props);
 
     return (
       <div className="profile-description">

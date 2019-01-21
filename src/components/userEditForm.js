@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
+import React, { Component } from "react";
 
 class UserEditForm extends Component {
   constructor(props) {
@@ -17,8 +17,8 @@ class UserEditForm extends Component {
   }
 
   handleInputChange = event => {
-    console.log(event.target.value);
-    console.log(event.target.userNameInput);
+    // console.log(event.target.value);
+    // console.log(event.target.userNameInput);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -52,7 +52,6 @@ class UserEditForm extends Component {
   };
 
   render() {
-    console.log(this.props.userInfo.userInfo);
     return (
       <div className="user-signup-form">
         <Form onSubmit={this.handleSubmit}>

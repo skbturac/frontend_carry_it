@@ -13,8 +13,8 @@ class UserSignUpForm extends Component {
   }
 
   handleInputChange = event => {
-    console.log(event.target.value);
-    console.log(event.target.userNameInput);
+    // console.log(event.target.value);
+    // console.log(event.target.userNameInput);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -41,13 +41,13 @@ class UserSignUpForm extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+        // console.log(json);
       });
   };
 
   render() {
-    console.log(this.state.userNameInput);
-    console.log(this.state.passwordInput);
+    // console.log(this.state.userNameInput);
+    // console.log(this.state.passwordInput);
     return (
       <div className="user-signup-form">
         <Form onSubmit={this.handleSubmit}>

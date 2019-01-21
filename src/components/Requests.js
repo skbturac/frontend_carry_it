@@ -31,7 +31,8 @@ class Requests extends Component {
             </Card.Header>
             <Card.Meta>
               {" "}
-              <strong>Pick-Up Address</strong><br/>
+              <strong>Pick-Up Address</strong>
+              <br />
               {this.props.serviceObj.sender.home_address
                 ? this.props.serviceObj.sender.home_address
                 : null}
@@ -81,7 +82,11 @@ class Requests extends Component {
           </Card.Content>
           <Card.Content extra>
             <div className="ui two buttons">
-              <Button basic color="green">
+              <Button
+                onClick={() => this.props.createService(this.props.serviceObj)}
+                basic
+                color="green"
+              >
                 Accept
               </Button>
             </div>
@@ -92,7 +97,7 @@ class Requests extends Component {
   };
 
   render() {
-    console.log("!!!!!!! Props Requests are ---,", this.props.serviceObj);
+    // console.log("!!!!!!! Props Requests are ---,", this.props.serviceObj);
     return <>{this.renderRequesstsCard()}</>;
   }
 }

@@ -13,8 +13,8 @@ class UserLoginForm extends Component {
   }
 
   handleInputChange = event => {
-    console.log(event.target.value);
-    console.log(event.target.userNameInput);
+    // console.log(event.target.value);
+    // console.log(event.target.userNameInput);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -37,20 +37,20 @@ class UserLoginForm extends Component {
       .then(response => response.json())
       .then(json => {
         localStorage.setItem('token', json.jwt)
-        console.log(json);
+        // console.log(json);
       });
       if (localStorage.getItem('token') !== null) {
         this.props.handleAuth()
       } else {
-        console.log("Please Sign In")
+        // console.log("Please Sign In")
       }
   };
   //Get Token - localStorage.getItem('token')
 
   render() {
-    console.log(this.state.userNameInput);
-    console.log(this.state.passwordInput);
-    console.log(this.props);
+    // console.log(this.state.userNameInput);
+    // console.log(this.state.passwordInput);
+    // console.log(this.props);
     return (
       <div className="user-login-form">
         {" "}

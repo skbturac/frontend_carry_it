@@ -86,7 +86,7 @@ class Packages extends Component {
   };
 
   render() {
-    console.log("Props Packages are ---,", this.props.packageData);
+    // console.log("Props Packages are ---,", this.props.packageData);
     return <>{this.renderCard()}</>;
   }
 }

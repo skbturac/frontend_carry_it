@@ -25,23 +25,23 @@ class ProfileContainer extends Component {
     })
       .then(response => response.json())
       .then(profileData => {
-        console.log("Before fetch --", profileData);
+        // console.log("Before fetch --", profileData);
         this.setState({ userInfo: profileData });
-        console.log("After fetch --", profileData);
+        // console.log("After fetch --", profileData);
       });
   }
 
   handleEdit = (obj) => {
-    // debugger
-    // this.setState({
-    //   userInfo: obj
-    // })
+    // console.log("state initially is: ", this.state)
+    this.setState({
+      userInfo: {
+        user: obj
+      }
+    } //, () => console.log("state updates to: ", this.state)
+  )
   }
 
-  // handleDisplay = () => {};
-
   render() {
-    console.log("!!!!",this.state);
     return (
       <div className="homepage-container">
         <div className="Menu-bar">

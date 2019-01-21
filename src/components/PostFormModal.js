@@ -18,7 +18,7 @@ class PostFormModal extends Component {
     })
       .then(response => response.json())
       .then(usersData => {
-        console.log("Before setState --", usersData);
+        // console.log("Before setState --", usersData);
         let formattedUsers = usersData.map(user => {
           let formatUser = {};
           formatUser.key = user.id;

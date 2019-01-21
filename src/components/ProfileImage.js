@@ -7,7 +7,7 @@ class ProfileImage extends Component {
   }
 
   render() {
-    console.log("ProfileImage Props Are ---", this.props);
+    // console.log("ProfileImage Props Are ---", this.props);
     return (
       <div className="profile-image">
         <Header as="h2">

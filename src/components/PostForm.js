@@ -17,15 +17,15 @@ class PostForm extends Component {
   }
 
   handleInputChange = event => {
-    console.log(event.target.value);
-    console.log(event.target.lengthInput);
+    // console.log(event.target.value);
+    // console.log(event.target.lengthInput);
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
   handleDropdownChange = (event, {value}) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({
       receiverIdInput: value
     })
@@ -54,12 +54,12 @@ class PostForm extends Component {
       .then(response => response.json())
       .then(json => {
         this.props.handleNewItem(json)
-        console.log(json)
+        // console.log(json)
       })
   };
 
   render() {
-    console.log("Props PostForm are ---,", this.props);
+    // console.log("Props PostForm are ---,", this.props);
     return (
       <>
         <Grid.Column className="post-form">

@@ -9,8 +9,8 @@ class MenuBar extends Component {
   }
 
   render() {
-    console.log("MenuBar Props are", this.props);
-    console.log(localStorage.getItem('token'));
+    // console.log("MenuBar Props are", this.props);
+    // console.log(localStorage.getItem('token'));
     const { activeItem } = this.props;
 
     return (
@@ -22,11 +22,6 @@ class MenuBar extends Component {
               active={activeItem === "Profile"}
               onClick={this.props.handleItemClick}
               position="right"
-            />
-            <Menu.Item
-              name="Message"
-              active={activeItem === "Message"}
-              onClick={this.props.handleItemClick}
             />
             <Menu.Item
               name="Activity"
@@ -45,3 +40,9 @@ class MenuBar extends Component {
 }
 
 export default MenuBar;
+
+// <Menu.Item
+//   name="Message"
+//   active={activeItem === "Message"}
+//   onClick={this.props.handleItemClick}
+// />

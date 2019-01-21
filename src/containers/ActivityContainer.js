@@ -9,8 +9,8 @@ class ActivityContainer extends Component {
     this.state = {};
   }
   // handleSearch = (event) => {
-  //   console.log(event.target.value);
-  //   this.setState({searchBox: event.target.value}, () => console.log(this.state))
+  //   // console.log(event.target.value);
+  //   this.setState({searchBox: event.target.value}, () => // console.log(this.state))
   // }
   // handleDisplay = () => {
   //   const toRender = this.state.postData.filter(postObj => postObj.zipcode.includes(this.state.searchBox))
