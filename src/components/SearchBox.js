@@ -12,7 +12,7 @@ class SearchBox extends Component {
         <Input
           style={{ width: "290px" }}
           icon="search"
-          placeholder="Search by Destination Zipcode"
+          placeholder="Search by Destination Zipcode/City"
           type="text"
           onChange={this.props.handleSearch}
         />

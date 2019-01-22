@@ -41,11 +41,13 @@ class Requests extends Component {
           </Card.Content>
           <Card.Content extra>
             <Image
-              size="small"
+              size="large"
               src={
                 this.props.serviceObj.image ? this.props.serviceObj.image : null
               }
             />
+          </Card.Content>
+          <Card.Content extra>
             <Card.Description>
               <strong>
                 {this.props.serviceObj.description
@@ -79,11 +81,19 @@ class Requests extends Component {
                 ? this.props.serviceObj.receiver.home_address
                 : null}
             </Card.Meta>
+            <strong>Delivery Date</strong>
+            <Card.Meta>
+              {this.props.serviceObj.delivery_date
+                ? this.props.serviceObj.delivery_date
+                : null}
+            </Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <div className="ui two buttons">
               <Button
-                onClick={() => this.props.createService(this.props.serviceObj)}
+                onClick={
+                  (() => {this.props.createService(this.props.serviceObj); this.props.handleAccept(this.props.serviceObj.id)})
+                }
                 basic
                 color="green"
               >
@@ -97,7 +107,7 @@ class Requests extends Component {
   };
 
   render() {
-    // console.log("!!!!!!! Props Requests are ---,", this.props.serviceObj);
+    console.log("!!!!!", this.props);
     return <>{this.renderRequesstsCard()}</>;
   }
 }

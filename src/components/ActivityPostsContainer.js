@@ -2,47 +2,18 @@ import React, { Component, Fragment } from "react";
 import Requests from "./Requests";
 import { Grid } from "semantic-ui-react";
 
-var faker = require('faker');
+var faker = require("faker");
 
 class ActivityPostsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      requests: [],
-      users: [],
       services: []
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:4000/api/v1/packages", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    })
-      .then(response => response.json())
-      .then(requestsData => {
-        // console.log("Before fetch --", requestsData);
-        this.setState({ requests: requestsData });
-        // console.log("After fetch --", requestsData);
-      });
-    fetch("http://localhost:4000/api/v1/users", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    })
-      .then(response => response.json())
-      .then(usersData => {
-        // console.log("Before fetch --", usersData);
-        this.setState({ users: usersData });
-        // console.log("After fetch --", usersData);
-      });
-  }
-
-  createService = (event) => {
-    console.log(event.id)
+  createService = event => {
+    console.log(event.id);
     fetch("http://localhost:4000/api/v1/services", {
       method: "POST",
       headers: {
@@ -52,7 +23,7 @@ class ActivityPostsContainer extends Component {
       },
       body: JSON.stringify({
         service: {
-          status: "Incomplete",
+          status: "Picked-Up",
           price: faker.fake("{{random.number(50)}}"),
           destination_address: event.receiver.home_address,
           package_id: event.id
@@ -61,23 +32,23 @@ class ActivityPostsContainer extends Component {
     })
       .then(response => response.json())
       .then(servicesData => {
-        // console.log("Before fetch --", servicesData);
         this.setState({ services: servicesData });
-        // console.log("!!!! After fetch --", servicesData);
       });
   };
 
+
   renderActivityPosts = () => {
-    return this.state.requests.map(serviceObj => (
-      <Requests createService={this.createService} serviceObj={serviceObj} key={serviceObj.id} />
+    return this.props.requests.map(serviceObj => (
+      <Requests
+        createService={this.createService}
+        serviceObj={serviceObj}
+        key={serviceObj.id}
+        handleAccept = {this.props.handleAccept}
+      />
     ));
   };
 
   render() {
-    console.log(faker.fake("{{random.number(50)}}"));
-    // console.log("Before fetch --", this.state.requests);
-    // console.log("Before fetch --", this.state.users);
-
     return (
       <Fragment>
         <Grid className="activity-requests-container" columns={4}>
@@ -90,6 +61,30 @@ class ActivityPostsContainer extends Component {
 
 export default ActivityPostsContainer;
 
+// updatePost = obj => {
+  //   fetch("http://localhost:4000/api/v1/packages", {
+    //     method: "PATCH",
+    //     headers: {
+      //       Authorization: `Bearer ${localStorage.getItem("token")}`
+      //     },
+      //     body: JSON.stringify({
+        //       user: {
+          //         weight: obj.weight,
+          //         height: obj.height,
+          //         length: obj.length,
+          //         description: obj.description,
+          //         delivery_date: obj.delivery_date,
+          //         image: obj.image,
+          //         receiver_id: obj.receiver_id,
+          //         status: false
+          //       }
+          //     })
+          //   })
+          //   .then(response => response.json())
+          //   .then(json => {
+            //     this.props.handleUpdate(json)
+            //   })
+            // }
 // import { Button, Dimmer, Header, Image, Reveal } from 'semantic-ui-react'
 // <>
 // <Reveal animated='move up'>

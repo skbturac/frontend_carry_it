@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import ProfileContainer from "./ProfileContainer";
 import ActivityContainer from "./ActivityContainer";
-// import MenuBar from "../components/MenuBar";
-// import Profile from "../components/Profile";
-// import PostContainer from "../containers/PostContainer";
-// import BagContainer from "../containers/BagContainer";
-// import { Header } from "semantic-ui-react";
 
 class Homepage extends Component {
   constructor(props) {
@@ -16,7 +11,6 @@ class Homepage extends Component {
   }
 
   handleItemClick = (event, { name }) => {
-    // console.log(event.target);
     this.setState({ activeItem: name });
   };
 
@@ -24,7 +18,7 @@ class Homepage extends Component {
 
   whatToRender = () => {
     if (this.state.activeItem === "Log Out") {
-      localStorage.removeItem("token") && this.props.handleLogOut();
+      localStorage.removeItem("token") && this.props.handleLogOut()
     } else if (this.state.activeItem === "Profile") {
       return <ProfileContainer handleItemClick={this.handleItemClick} />;
     } else if (this.state.activeItem === "Activity") {

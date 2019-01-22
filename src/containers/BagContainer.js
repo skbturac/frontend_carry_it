@@ -20,30 +20,75 @@ class BagContainer extends Component {
       .then(response => response.json())
       .then(servicesData => {
         console.log("Before fetch --", servicesData);
-        this.setState({ services: servicesData }, () => console.log("After fetch --", servicesData)
-      );
+        this.setState({ services: servicesData }, () =>
+          console.log("After fetch --", servicesData)
+        );
       });
   }
+
+  handleDeleteButton = id => {
+    fetch(`http://localhost:4000/api/v1/services/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+    this.handleDelete(id);
+  };
+
+  handleDelivery = obj => {
+    console.log(obj)
+    fetch(`http://localhost:4000/api/v1/services/${obj.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      },
+      body: JSON.stringify({
+        service: {
+          status: "Delivered",
+          price: obj.price ,
+          destination_address: obj.destination_address ,
+          package_id: obj.id
+        }
+      })
+    // }).then(response => response.json());
+    // .then(json => {
+    //   this.handleDelivered(json)
+    })
+  }
+
+  handleDisplay = () => {
+
+  }
+
   renderBagPosts = () => {
-    return this.state.requests.map(serviceObj => (
-      <BagItem createService={this.createService} serviceObj={serviceObj} key={serviceObj.id} />
+    return this.state.services.map(serviceObj => (
+      <BagItem
+        serviceObj={serviceObj}
+        key={serviceObj.id}
+        handleDeleteButton={this.handleDeleteButton}
+        handleDelivery={this.handleDelivery}
+      />
     ));
+  };
+
+  handleDelete = id => {
+    this.setState({
+      services: this.state.services.filter(serviceObj => id !== serviceObj.id)
+    });
   };
 
   render() {
     return (
       <Grid className="bag-container" columns={3}>
-        <BagItem />
+        {this.renderBagPosts()}
       </Grid>
     );
   }
 }
 
 export default BagContainer;
-
-// status
-// price
-// destination_address
-// destination_zipcode
-// package_id
-// carrier_id

@@ -19,61 +19,64 @@ class Packages extends Component {
     this.props.handleDelete(id);
   };
 
+  handleLoadingCarrier = () => {
+    return (
+      <>
+        <Image
+          floated="left"
+          size="mini"
+          src={
+            this.props.packageObj.service
+              ? this.props.packageObj.service.carrier_details.avatar
+              : null
+          }
+        />
+        {this.props.packageObj.service ? (
+          `
+          ${this.props.packageObj.service.carrier_details.first_name} ${
+            this.props.packageObj.service.carrier_details.last_name
+          }`
+        ) : (
+          <a>
+            Reaching To Our Carriers
+            <Icon name="user" />
+            <Loader active inline="centered" />
+          </a>
+        )}
+      </>
+    );
+  };
+
   renderCard = () => {
     return (
       <Grid.Column>
         <Card size="small" raised centered>
           <Image
             size="large"
-            src={
-              this.props.packageObj.image ? this.props.packageObj.image : null
-            }
+            src={this.props.packageObj ? this.props.packageObj.image : null}
           />
           <Card.Content>
             <Card.Description>
-              {this.props.packageObj.description
-                ? this.props.packageObj.description
-                : null}
-              <Card.Header>
-                Estimated Amount ($)
-                {this.props.packageObj.price
-                  ? this.props.packageObj.price
-                  : null}
-              </Card.Header>
+              {this.props.packageObj ? this.props.packageObj.description : null}
             </Card.Description>
             <Card.Meta>
               Scheduled Delivery{" "}
-              {this.props.packageObj.delivery_date
+              {this.props.packageObj
                 ? this.props.packageObj.delivery_date
                 : null}
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <Card.Description> Weight (lb): </Card.Description>
-            <a>
-              {this.props.packageObj.weight
-                ? this.props.packageObj.weight
-                : null}
-            </a>
+            <a>{this.props.packageObj ? this.props.packageObj.weight : null}</a>
             <Card.Description> Height (inch) </Card.Description>
-            <a>
-              {this.props.packageObj.height
-                ? this.props.packageObj.height
-                : null}
-            </a>
+            <a>{this.props.packageObj ? this.props.packageObj.height : null}</a>
             <Card.Description> Length (inch) </Card.Description>
-            <a>
-              {this.props.packageObj.length
-                ? this.props.packageObj.length
-                : null}
-            </a>
+            <a>{this.props.packageObj ? this.props.packageObj.length : null}</a>
           </Card.Content>
           <Card.Content extra>
-            <a>
-              Reaching To Our Carriers
-              <Icon name="user" />
-              <Loader active inline="centered" />
-            </a>
+            <Card.Description> Your Carrier </Card.Description>
+            {this.handleLoadingCarrier()}
           </Card.Content>
 
           <Button
@@ -86,9 +89,15 @@ class Packages extends Component {
   };
 
   render() {
-    // console.log("Props Packages are ---,", this.props.packageData);
+    console.log("!!!!!!!", this.props);
     return <>{this.renderCard()}</>;
   }
 }
 
 export default Packages;
+// <Card.Header>
+//   Estimated Amount ($)
+//   {this.props.packageObj.price
+//     ? this.props.packageObj.price
+//     : null}
+// </Card.Header>

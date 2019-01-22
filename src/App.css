@@ -67,6 +67,9 @@
 .ui.three.column.grid.receiver-container {
   padding: 2em;
 }
+/* .ui[class*="three column"].grid>.column:not(.row), .ui[class*="three column"].grid>.row>.column {
+    width: 55%;
+} */
 
 .ui.card>:first-child, .ui.cards>.card>:first-child{
     min-height: 200px;
