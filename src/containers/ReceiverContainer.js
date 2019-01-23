@@ -10,35 +10,34 @@ class ReceiverContainer extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch("http://localhost:4000/api/v1/user_receiving_packages", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("token")}`
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(receivesData => {
-  //       console.log("Before fetch --", receivesData);
-  //       this.setState({ receives: receivesData }, () =>
-  //         console.log("After fetch --", receivesData)
-  //       );
-  //     });
-  // }
+  componentDidMount() {
+    fetch("http://localhost:4000/api/v1/user_receiving_packages", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+      .then(response => response.json())
+      .then(receivesData => {
+        console.log("Before fetch --", receivesData);
+        this.setState({ receives: receivesData }, () =>
+          console.log("After fetch --", receivesData)
+        );
+      });
+  }
 
   renderReceiving = () => {
+    // debugger
     return this.state.receives.map(receivesObj => (
-      <PackagesToReceive
-        receivesObj={receivesObj}
-        key={receivesObj.id}
-      />
+      <PackagesToReceive receivesObj={receivesObj} key={receivesObj.id} />
     ));
   };
 
   render() {
+    console.log("This is Receivers State", this.state);
     return (
       <Grid className="receiver-container" columns={3}>
-        {this.renderReceiving}
+        {this.renderReceiving()}
       </Grid>
     );
   }

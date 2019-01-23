@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   handleLogIn = () => {
-
+    this.whatToRender()
   }
 
   handleAuth = () => {
@@ -31,7 +31,7 @@ class App extends Component {
   // {this.state.loggedIn ? true : false }
   whatToRender = () => {
     if (this.state.loggedIn === false) {
-      return <LandingPage handleAuth={this.handleAuth}  />;
+      return <LandingPage handleAuth={this.handleAuth} handleLogIn={this.handleLogIn}  />;
     } else {
       return <Homepage handleAuth={this.handleAuth} handleLogOut={this.handleLogOut}/>;
     }

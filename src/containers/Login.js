@@ -16,7 +16,10 @@ class Login extends Component {
           <Grid columns={2} relaxed="very" stackable>
             <Grid.Column>
               <div className="user-login-container">
-                <UserLoginForm handleAuth={() => this.props.handleAuth()} />
+                <UserLoginForm
+                  handleAuth={this.props.handleAuth}
+                  handleLogIn={this.handleLogIn}
+                />
               </div>
             </Grid.Column>
             <Grid.Column verticalAlign="middle">

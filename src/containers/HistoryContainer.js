@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import BagItem from "../components/BagItem";
+import HistoryItem from "../components/HistoryItem";
 import { Grid } from "semantic-ui-react";
 
-class BagContainer extends Component {
+class HistoryContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,53 +26,17 @@ class BagContainer extends Component {
       });
   }
 
-  handleDeleteButton = id => {
-    fetch(`http://localhost:4000/api/v1/services/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
-    this.handleDelete(id);
-  };
-
-  handleDelivery = obj => {
-    console.log(obj)
-    fetch(`http://localhost:4000/api/v1/services/${obj.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-    },
-      body: JSON.stringify({
-        service: {
-          status: "Delivered",
-          price: obj.price ,
-          destination_address: obj.destination_address,
-          package_id: obj.package.id
-        }
-      })
-    .then((response) => response.json())
-    .then(() => {
-      this.handleDisplay()
-    })
-  }
-)}
-
   handleDisplay = () => {
     console.log(this.state.services)
     const toRender = this.state.services.filter(serviceObj =>
-       serviceObj.status === "Picked-Up")
+       serviceObj.status === "Delivered")
     return toRender;
   }
 
-  renderBagPosts = () => {
+  renderBagHistory = () => {
     const display = this.handleDisplay()
     return display.map(serviceObj => (
-      <BagItem
+      <HistoryItem
         serviceObj={serviceObj}
         key={serviceObj.id}
         handleDeleteButton={this.handleDeleteButton}
@@ -89,11 +53,11 @@ class BagContainer extends Component {
 
   render() {
     return (
-      <Grid className="bag-container" columns={3}>
-        {this.renderBagPosts()}
+      <Grid className="history-bag-container" columns={3}>
+        {this.renderBagHistory()}
       </Grid>
     );
   }
 }
 
-export default BagContainer;
+export default HistoryContainer;

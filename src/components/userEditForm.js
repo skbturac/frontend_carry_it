@@ -56,7 +56,6 @@ class UserEditForm extends Component {
       <div className="user-signup-form">
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
-            iconPosition="left"
             label="Profile Image"
             placeholder="Copy & Past URL"
             value={this.state.imageURLInput}
@@ -64,7 +63,6 @@ class UserEditForm extends Component {
             name="imageURLInput"
           />
           <Form.Input
-            iconPosition="left"
             label="First Name"
             placeholder="First Name"
             value={this.state.firstNameInput}
@@ -72,7 +70,6 @@ class UserEditForm extends Component {
             name="firstNameInput"
           />
           <Form.Input
-            iconPosition="left"
             label="Last Name"
             placeholder="Last Name"
             value={this.state.lastNameInput}
@@ -80,15 +77,13 @@ class UserEditForm extends Component {
             name="lastNameInput"
           />
           <Form.Input
-            iconPosition="left"
             label="Username"
             placeholder="Username"
             value={this.state.userNameInput}
             onChange={this.handleInputChange}
             name="userNameInput"
           />
-          <Form.Input
-            iconPosition="left"
+          <Form.TextArea
             label="Bio"
             placeholder="Bio"
             value={this.state.bioInput}
@@ -96,7 +91,6 @@ class UserEditForm extends Component {
             name="bioInput"
           />
           <Form.Input
-            iconPosition="left"
             label="Email Address"
             placeholder="Email Address"
             value={this.state.email_addressInput}
@@ -104,7 +98,6 @@ class UserEditForm extends Component {
             name="email_addressInput"
           />
           <Form.Input
-            iconPosition="left"
             label="Home Address"
             placeholder="Home Address"
             value={this.state.home_addressInput}
@@ -112,7 +105,6 @@ class UserEditForm extends Component {
             name="home_addressInput"
           />
           <Form.Input
-            iconPosition="left"
             label="Phone Number"
             placeholder="Phone Number"
             value={this.state.phone_numberInput}

@@ -41,6 +41,11 @@
   padding-left: 3em;
   max-width: 700px;
 }
+.history-container {
+  margin: 5em;
+  padding-left: 3em;
+  max-width: 700px;
+}
 .ui.three.column.grid.bag-container {
   padding: 2em;
 }

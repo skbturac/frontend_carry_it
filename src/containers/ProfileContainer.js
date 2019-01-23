@@ -4,6 +4,8 @@ import Profile from "../components/Profile";
 import PostContainer from "../containers/PostContainer";
 import BagContainer from "../containers/BagContainer";
 import ReceiverContainer from "../containers/ReceiverContainer";
+import HistoryContainer from "../containers/HistoryContainer";
+
 import { Header } from "semantic-ui-react";
 
 URL = `http://localhost:4000/api/v1/profile`;
@@ -65,6 +67,10 @@ class ProfileContainer extends Component {
         <div className="bags-container">
           <Header as="h2" icon="boxes" content="Packages to deliver" />
           <BagContainer handleItemClick={this.props.handleItemClick} />
+        </div>
+        <div className="history-container">
+          <Header as="h2" icon="history" content="Service History" />
+          <HistoryContainer handleItemClick={this.props.handleItemClick} />
         </div>
         <div className="receiver-packages-container">
           <Header as="h2" icon="dropbox" content="Arriving Packages" />

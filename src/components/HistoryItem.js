@@ -20,14 +20,6 @@ class BagItem extends Component {
     return (
       <Grid.Column>
         <Card raised centered>
-          <Button
-            size="mini"
-            onClick={this.props.serviceObj ? () =>
-              this.props.handleDeleteButton(this.props.serviceObj.id) : null
-            }
-            floated="right"
-            icon="close"
-          />
           <Card.Content>
             <Card.Header>
               {this.props.serviceObj.package
@@ -118,15 +110,9 @@ class BagItem extends Component {
                 </p>
               </Grid.Column>
               <Grid.Column textAlign="center">
-                <Button
-                  onClick={() =>
-                    this.props.handleDelivery(this.props.serviceObj)
-                  }
-                  basic
-                  color="green"
-                >
-                  Delivered
-                </Button>
+              <Header as="h4">
+                <strong>Delivered</strong>
+              </Header>
               </Grid.Column>
             </Grid>
           </Popup>
@@ -136,7 +122,7 @@ class BagItem extends Component {
   };
 
   render() {
-    console.log("!!!!!!!!0000!!!!!!!!",this.props);
+    console.log("!!!!!!!!!!!!!!!!!!",this.props);
     return <>{this.renderServiceCard()}</>;
   }
 }

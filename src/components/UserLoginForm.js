@@ -42,7 +42,7 @@ class UserLoginForm extends Component {
       if (localStorage.getItem('token') !== null) {
         this.props.handleAuth()
       } else {
-        // console.log("Please Sign In")
+        // this.props.handleLogIn()
       }
   };
   //Get Token - localStorage.getItem('token')
@@ -54,7 +54,7 @@ class UserLoginForm extends Component {
     return (
       <div className="user-login-form">
         {" "}
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={() => this.handleSubmit()}>
           {" "}
           <Form.Input
             icon="user"

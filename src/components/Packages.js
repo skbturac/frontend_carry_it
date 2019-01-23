@@ -22,25 +22,26 @@ class Packages extends Component {
   handleLoadingCarrier = () => {
     return (
       <>
-        <Image
-          floated="left"
-          size="mini"
-          src={
-            this.props.packageObj.service
-              ? this.props.packageObj.service.carrier_details.avatar
-              : null
-          }
-        />
         {this.props.packageObj.service ? (
-          `
-          ${this.props.packageObj.service.carrier_details.first_name} ${
-            this.props.packageObj.service.carrier_details.last_name
-          }`
+          <>
+            <Image
+              floated="left"
+              size="mini"
+              src={ this.props.packageObj.service.carrier_details.avatar }
+            />
+            {this.props.packageObj.service.carrier_details.first_name}{" "}
+            {this.props.packageObj.service.carrier_details.last_name}
+          </>
         ) : (
           <a>
             Reaching To Our Carriers
             <Icon name="user" />
             <Loader active inline="centered" />
+            <br/>
+            <Button
+              onClick={() => this.handleDeleteButton(this.props.packageObj.id)}
+              icon="delete"
+            />
           </a>
         )}
       </>
@@ -76,13 +77,14 @@ class Packages extends Component {
           </Card.Content>
           <Card.Content extra>
             <Card.Description> Your Carrier </Card.Description>
+            <h6/>
             {this.handleLoadingCarrier()}
-          </Card.Content>
+            <h6/>
+            <h5/>
+              {this.props.packageObj.service ? this.props.packageObj.service.status : null}
+            <h5/>
 
-          <Button
-            onClick={() => this.handleDeleteButton(this.props.packageObj.id)}
-            icon="delete"
-          />
+          </Card.Content>
         </Card>
       </Grid.Column>
     );
