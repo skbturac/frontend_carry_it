@@ -35,9 +35,7 @@ class ActivityContainer extends Component {
     })
       .then(response => response.json())
       .then(usersData => {
-        // console.log("Before fetch --", usersData);
         this.setState({ users: usersData });
-        // console.log("After fetch --", usersData);
       });
   }
 

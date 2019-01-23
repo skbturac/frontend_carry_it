@@ -46,27 +46,36 @@ class BagContainer extends Component {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`
-      },
+    },
       body: JSON.stringify({
         service: {
           status: "Delivered",
           price: obj.price ,
-          destination_address: obj.destination_address ,
+          destination_address: obj.destination_address,
           package_id: obj.id
         }
       })
-    // }).then(response => response.json());
+    // .then(response => response.json())
     // .then(json => {
-    //   this.handleDelivered(json)
-    })
+    //   this.handleDisplay(json)
+    // })
   }
+)}
 
   handleDisplay = () => {
-
+    // this.setState({
+    //   services: this.state.services.filter( serviceObj =>
+    //     serviceObj.status !== "Picked-Up")
+    // });
+    console.log(this.state.services)
+    const toRender = this.state.services.filter(serviceObj =>
+       serviceObj.status === "Picked-Up")
+    return toRender;
   }
 
   renderBagPosts = () => {
-    return this.state.services.map(serviceObj => (
+    const display = this.handleDisplay()
+    return display.map(serviceObj => (
       <BagItem
         serviceObj={serviceObj}
         key={serviceObj.id}

@@ -12,8 +12,7 @@ class PostForm extends Component {
       lengthInput: "",
       descriptionInput: "",
       deliverydateInput: "",
-      receiverIdInput: "",
-      status: true
+      receiverIdInput: ""
     };
   }
 
@@ -48,8 +47,7 @@ class PostForm extends Component {
           description: this.state.descriptionInput,
           delivery_date: this.state.deliverydateInput,
           image: this.state.imageURLInput,
-          receiver_id: this.state.receiverIdInput,
-          status: this.state.status
+          receiver_id: this.state.receiverIdInput
         }
       })
     })

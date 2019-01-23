@@ -10,21 +10,21 @@ class ReceiverContainer extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:4000/api/v1/user_receiving_packages", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    })
-      .then(response => response.json())
-      .then(receivesData => {
-        console.log("Before fetch --", receivesData);
-        this.setState({ receives: receivesData }, () =>
-          console.log("After fetch --", receivesData)
-        );
-      });
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:4000/api/v1/user_receiving_packages", {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem("token")}`
+  //     }
+  //   })
+  //     .then(response => response.json())
+  //     .then(receivesData => {
+  //       console.log("Before fetch --", receivesData);
+  //       this.setState({ receives: receivesData }, () =>
+  //         console.log("After fetch --", receivesData)
+  //       );
+  //     });
+  // }
 
   renderReceiving = () => {
     return this.state.receives.map(receivesObj => (
